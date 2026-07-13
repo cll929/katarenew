@@ -2,7 +2,7 @@ name: Auto-renew-katabump
 on:
   workflow_dispatch:
   schedule:
-    - cron: '30 3 */3 * *' # 每隔3天11:30点(UTC 3:30) 运行
+    - cron: '15 3 */2 * *' # 每隔2天11:15点(UTC 3:30) 运行
 
 jobs:
   Renew-katabump:
@@ -130,3 +130,14 @@ jobs:
               gh run delete $run_id || true
             fi
           done 
+
+      - name: Heartbeat commit
+        if: always()
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git pull origin main || true
+          echo "Last run: $(date -u)" > heartbeat.txt
+          git add heartbeat.txt
+          git commit -m "heartbeat $(date -u)" || echo "No changes"
+          git push origin HEAD:main    
