@@ -10,18 +10,21 @@
 |---------------------|----------|---------------------------------------------------|
 | KATABUMP_EMAIL     | ✅ 必填  | katabump 登录邮箱                                |
 | KATABUMP_PASSWORD  | ✅ 必填  | katabump 登录密码                                |
-| GOST_PROXY_TARGET   | ❌ 可选  | Gost 代理完整地址（需包含协议，如 socks5://）     |
+| NODE_LINK   | ❌ 可选  | 代理链接，如 vless:// vmess:// tuic:// hysteria2:// anttls:// socks5://     |
 | TG_BOT_TOKEN        | ❌ 可选  | Telegram Bot Token（用于发送通知）                |
 | TG_CHAT_ID          | ❌ 可选  | Telegram Chat ID（接收通知的用户或群组 ID）        |
 
 ━━━━━━━━━━━━━━━━━━━━━━
 
-📌 示例填写格式（复制下面内容，分开添加）：
+代理格式（确认在v2rayN里使用正常的节点）
+NODE_LINK 支持以下任意一种代理协议的完整分享链接（不配置则直连）：
 
-LUNES_EMAIL=abc@abc.com  
-LUNES_PASSWORD=abc123  
-NODE_LINK=socks5://user:pass@123.456.789:1234  
-TG_BOT_TOKEN=123456789:ABCdefGhIJKlmNoPQRstuVWXyz  
-TG_CHAT_ID=123456789  
+VLESS：vless://uuid@server:port?security=reality&sni=...&type=ws&...
+VMess：vmess://base64encoded...
+Trojan：trojan://password@server:port?sni=...&type=ws&...
+tuic：tuic://uuid:password@server:port...
+anytls：anytls://uuid@server:port...
+hysteria2：hysteria2://base64@server:port...
+SOCKS5：socks5://user:pass@server:port 或 socks://user:pass@server:port
 
 ━━━━━━━━━━━━━━━━━━━━━━
