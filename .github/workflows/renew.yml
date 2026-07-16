@@ -4,6 +4,8 @@ on:
   schedule:
     - cron: '15 3 */2 * *' # 每隔2天11:15点(UTC 3:30) 运行
 
+permissions:
+  contents: write
 
 jobs:
   Renew-Katabump:
